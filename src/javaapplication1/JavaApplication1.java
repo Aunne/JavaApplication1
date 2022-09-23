@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class JavaApplication1 {
 
     public static void main(String[] args) {
-        topic2();
+        topic3();
     }
 
     public static boolean isPrime(int num) {
@@ -32,6 +32,9 @@ public class JavaApplication1 {
     }
 
     public static void topic1() {
+        //
+        // 找出數字字串中最大的質數
+        //
         String str = input("輸入一個正整數: ");
         int strLenth = str.length();
         int number;
@@ -57,6 +60,9 @@ public class JavaApplication1 {
     }
 
     public static void topic2() {
+        //
+        // 電費計算
+        //
         float summer = 0f;
         float nonSummer = 0f;
         int degree = 0;
@@ -79,7 +85,22 @@ public class JavaApplication1 {
             summer = 2626.5f + 5.63f * ((float) (degree - 700));
             nonSummer = 2230.5f + 4.50f * ((float) (degree - 700));
         }
-        System.out.printf("summermonth: %.2f\n", summer);
+        System.out.printf("summer month: %.2f\n", summer);
         System.out.printf("non-summer month: %.2f\n", nonSummer);
+    }
+
+    public static void topic3() {
+        //
+        //生肖
+        //
+        String[] zodiac = {"rat", "ox", "tiger", "rabbit", "dragon", "snake", "horse", "sheep", "monkey", "rooster", "dog", "pig"};
+
+        int year;
+        year = Integer.parseInt(input("輸入一個正整數: ")) - 4;
+        int zodiacIndex = year % 12;
+        if (zodiacIndex < 0) {
+            zodiacIndex += 12;
+        }
+        System.out.println(zodiac[zodiacIndex]);
     }
 }
