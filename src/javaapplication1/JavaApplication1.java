@@ -205,7 +205,7 @@ public class JavaApplication1 {
             num = num + myList[i];
         }
         max = Integer.parseInt(num);
-        
+
         System.out.printf("最大值數列與最小值數列差值為: %d", (max - min));
     }
 }
