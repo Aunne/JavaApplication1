@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class JavaApplication1 {
 
     public static void main(String[] args) {
-        topic3();
+    /*
+        執行題目
+     */
+        topic4();
     }
 
     public static boolean isPrime(int num) {
@@ -27,7 +30,6 @@ public class JavaApplication1 {
         if (scan.hasNext()) {
             str1 = scan.next();
         }
-        scan.close();
         return str1;
     }
 
@@ -103,4 +105,49 @@ public class JavaApplication1 {
         }
         System.out.println(zodiac[zodiacIndex]);
     }
+
+    public static void topic4() {
+        //
+        // 2D座標判斷及計算離原點距離
+        //
+
+        int x, y;
+        x = Integer.parseInt(input("X坐標軸: "));
+        y = Integer.parseInt(input("Y坐標軸: "));
+
+        if (x == 0) {
+            if (y == 0) {
+                System.out.println("該點位於原點");
+            } else {
+                if (y > 0) {
+                    System.out.printf("此點位於上半平面Y軸上，離原點距離為根號 %d\n", (y * y));
+                } else {
+                    System.out.printf("此點位於下半平面Y軸上，離原點距離為根號 %d\n", (y * y));
+                }
+            }
+        } else {
+            if (x > 0) {
+                if (y == 0) {
+                    System.out.printf("該點位於右半平面X軸上，離原點距離為根號 %d\n", (x * x));
+                } else {
+                    if (y > 0) {
+                        System.out.printf("此點位於第一象限，離原點距離為根號 %d\n", (x * x + y * y));
+                    } else {
+                        System.out.printf("此點位於第四象限，離原點距離為根號 %d\n", (x * x + y * y));
+                    }
+                }
+            } else {
+                if (y == 0) {
+                    System.out.printf("該點位於左半平面X軸上，離原點距離為根號 %d\n", (x * x));
+                } else {
+                    if (y > 0) {
+                        System.out.printf("此點位於第二象限，離原點距離為根號 %d\n", (x * x + y * y));
+                    } else {
+                        System.out.printf("此點位於第三象限，離原點距離為根號 %d\n", (x * x + y * y));
+                    }
+                }
+            }
+        }
+    }
 }
+
