@@ -8,7 +8,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic4();
+        topic5();
     }
 
     public static boolean isPrime(int num) {
@@ -28,7 +28,7 @@ public class JavaApplication1 {
         String str1 = "";
         Scanner scan = new Scanner(System.in);
         if (scan.hasNext()) {
-            str1 = scan.next();
+            str1 = scan.nextLine();
         }
         return str1;
     }
@@ -148,6 +148,19 @@ public class JavaApplication1 {
                 }
             }
         }
+    }
+
+    public static void topic5() {
+        //
+        //階層判斷
+        //
+        int M = Integer.parseInt(input("輸入階層值M: "));
+        int i = 0, N = 1;
+
+        while (M > N) {
+            N *= ++i;
+        }
+        System.out.printf("超過M為%d的最小階層N為%d", M, i);
     }
 }
 
