@@ -8,7 +8,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic5();
+        topic6();
     }
 
     public static boolean isPrime(int num) {
@@ -161,6 +161,52 @@ public class JavaApplication1 {
             N *= ++i;
         }
         System.out.printf("超過M為%d的最小階層N為%d", M, i);
+    }
+
+    public static void topic6() {
+        String myString = input("輸入值為: ");
+        int count = 0;
+        for (int i = 0; i < myString.length(); i++) {
+            if (myString.charAt(i) != ',') {
+                count++;
+            }
+        }
+
+        int[] myList = new int[count];
+        int times = 0;
+        for (int i = 0; i < myString.length(); i++) {
+            if (myString.charAt(i) != ',') {
+                myList[times] = Character.getNumericValue(myString.charAt(i));
+                times++;
+            }
+        }
+        int n = myList.length;
+        int temp = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (myList[j - 1] > myList[j]) {
+                    temp = myList[j - 1];
+                    myList[j - 1] = myList[j];
+                    myList[j] = temp;
+                }
+            }
+        }
+
+        int max, min;
+        String num = "";
+        for (int i = 0; i < myList.length; i++) {
+            num = num + myList[i];
+        }
+        min = Integer.parseInt(num);
+        num = "";
+
+        for (int i = myList.length - 1; i >= 0; i--) {
+            num = num + myList[i];
+        }
+        max = Integer.parseInt(num);
+        
+        System.out.printf("最大值數列與最小值數列差值為: %d", (max - min));
     }
 }
 
