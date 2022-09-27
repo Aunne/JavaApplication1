@@ -8,7 +8,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic6();
+        topic7();
     }
 
     public static boolean isPrime(int num) {
@@ -207,6 +207,64 @@ public class JavaApplication1 {
         max = Integer.parseInt(num);
 
         System.out.printf("最大值數列與最小值數列差值為: %d", (max - min));
+    }
+
+    public static void topic7() {
+        //
+        //通話費率
+        //
+        String typeAndMoney = input("輸入月租費型式及通話費時間為: ");
+        int splitPoint = typeAndMoney.indexOf(',');
+        String theType = typeAndMoney.substring(0, splitPoint);
+        float sec = Float.parseFloat(typeAndMoney.substring(splitPoint + 1, typeAndMoney.length()));
+        int money = 0;
+
+        switch (theType) {
+            case "186":
+                money = (int) (Math.round(sec * 0.09));
+                if (money < 186) {
+                    money = 186;
+                } else if (money <= 372) {
+                    money = ((int) Math.round(money * 0.9f));
+                } else {
+                    money = ((int) Math.round(money * 0.8f));
+                }
+                break;
+            case "386":
+                money = (int) (Math.round(sec * 0.08));
+                if (money < 386) {
+                    money = 386;
+                } else if (money <= 772) {
+                    money = ((int) Math.round(money * 0.8f));
+                } else {
+                    money = ((int) Math.round(money * 0.7f));
+                }
+                break;
+            case "586":
+                money = (int) (Math.round(sec * 0.07));
+                if (money < 586) {
+                    money = 586;
+                } else if (money <= 1172) {
+                    money = ((int) Math.round(money * 0.7f));
+                } else {
+                    money = ((int) Math.round(money * 0.6f));
+                }
+                break;
+            case "986":
+                money = (int) (Math.round(sec * 0.06));
+                if (money < 986) {
+                    money = 986;
+                } else if (money <= 1972) {
+                    money = ((int) Math.round(money * 0.6f));
+                } else {
+                    money = ((int) Math.round(money * 0.5f));
+                }
+                break;
+            default:
+                System.out.println("未輸入或錯誤的輸入");
+        }
+        System.out.printf("通話費為: %d", money);
+
     }
 }
 
