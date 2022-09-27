@@ -8,7 +8,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic7();
+        topic8();
     }
 
     public static boolean isPrime(int num) {
@@ -31,6 +31,20 @@ public class JavaApplication1 {
             str1 = scan.nextLine();
         }
         return str1;
+    }
+
+    public static int[] bubble(int[] numList) {
+        int temp = 0;
+        for (int i = 0; i < numList.length; i++) {
+            for (int j = 1; j < (numList.length - i); j++) {
+                if (numList[j - 1] > numList[j]) {
+                    temp = numList[j - 1];
+                    numList[j - 1] = numList[j];
+                    numList[j] = temp;
+                }
+            }
+        }
+        return numList;
     }
 
     public static void topic1() {
@@ -164,6 +178,9 @@ public class JavaApplication1 {
     }
 
     public static void topic6() {
+        //
+        // 兩數差值
+        //
         String myString = input("輸入值為: ");
         int count = 0;
         for (int i = 0; i < myString.length(); i++) {
@@ -180,18 +197,8 @@ public class JavaApplication1 {
                 times++;
             }
         }
-        int n = myList.length;
-        int temp = 0;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 1; j < (n - i); j++) {
-                if (myList[j - 1] > myList[j]) {
-                    temp = myList[j - 1];
-                    myList[j - 1] = myList[j];
-                    myList[j] = temp;
-                }
-            }
-        }
+        myList = bubble(myList);
 
         int max, min;
         String num = "";
@@ -264,7 +271,35 @@ public class JavaApplication1 {
                 System.out.println("未輸入或錯誤的輸入");
         }
         System.out.printf("通話費為: %d", money);
+    }
 
+    public static void topic8() {
+        //
+        // 檢查數值是否有重複
+        //
+        int num = Integer.parseInt(input("輸入第一行正整數為: "));
+        String originList = input("第二行中數列中的數字為: ");
+
+        char[] numList = new char[8];
+        int indexCount = 0;
+
+        for (int i = 0; i < originList.length(); i++) {
+            if (Character.isDigit(originList.charAt(i))) {
+                numList[indexCount] = originList.charAt(i);
+                indexCount++;
+            }
+        }
+        int[] numCount = new int[num];
+        for (int a = 0; a < num; a++) {
+            numCount[a] = 0;
+        }
+        for (int j = 0; j < num; j++) {
+            switch (numList[j]) {
+                case '1':
+
+                    break;
+            }
+        }
     }
 }
 
