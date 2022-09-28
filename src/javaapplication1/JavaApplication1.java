@@ -2,6 +2,8 @@ package javaapplication1;
 
 import java.util.Scanner;
 
+import static javaapplication1.myLib.*;
+
 public class JavaApplication1 {
 
     public static void main(String[] args) {
@@ -9,42 +11,7 @@ public class JavaApplication1 {
         執行題目
      */
         topic8();
-    }
 
-    public static boolean isPrime(int num) {
-        if (num < 2) {
-            return false;
-        }
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static String input(String str) {
-        System.out.print(str);
-        String str1 = "";
-        Scanner scan = new Scanner(System.in);
-        if (scan.hasNext()) {
-            str1 = scan.nextLine();
-        }
-        return str1;
-    }
-
-    public static int[] bubble(int[] numList) {
-        int temp = 0;
-        for (int i = 0; i < numList.length; i++) {
-            for (int j = 1; j < (numList.length - i); j++) {
-                if (numList[j - 1] > numList[j]) {
-                    temp = numList[j - 1];
-                    numList[j - 1] = numList[j];
-                    numList[j] = temp;
-                }
-            }
-        }
-        return numList;
     }
 
     public static void topic1() {
@@ -205,13 +172,13 @@ public class JavaApplication1 {
         for (int i = 0; i < myList.length; i++) {
             num = num + myList[i];
         }
-        min = Integer.parseInt(num);
+        max = Integer.parseInt(num);
         num = "";
 
         for (int i = myList.length - 1; i >= 0; i--) {
             num = num + myList[i];
         }
-        max = Integer.parseInt(num);
+        min = Integer.parseInt(num);
 
         System.out.printf("最大值數列與最小值數列差值為: %d", (max - min));
     }
@@ -280,26 +247,28 @@ public class JavaApplication1 {
         int num = Integer.parseInt(input("輸入第一行正整數為: "));
         String originList = input("第二行中數列中的數字為: ");
 
-        char[] numList = new char[8];
+        int[] numList = new int[num];
         int indexCount = 0;
 
         for (int i = 0; i < originList.length(); i++) {
             if (Character.isDigit(originList.charAt(i))) {
-                numList[indexCount] = originList.charAt(i);
+                numList[indexCount] = Character.getNumericValue(originList.charAt(i));
                 indexCount++;
             }
         }
-        int[] numCount = new int[num];
-        for (int a = 0; a < num; a++) {
-            numCount[a] = 0;
-        }
-        for (int j = 0; j < num; j++) {
-            switch (numList[j]) {
-                case '1':
+        numList = bubble(numList);
+        int temp = numList[0];
+        int maxCount = 0;
+        int count = 1;
+        int[] countList;
 
-                    break;
+        for (int i = 1; i < numList.length; i++) {
+            if (temp == numList[i]) {
+                count++;
             }
         }
+
+
     }
 }
 
