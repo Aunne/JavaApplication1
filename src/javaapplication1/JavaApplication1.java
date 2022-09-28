@@ -257,18 +257,34 @@ public class JavaApplication1 {
             }
         }
         numList = bubble(numList);
-        int temp = numList[0];
-        int maxCount = 0;
         int count = 1;
-        int[] countList;
+        int[] countList = new int[numList.length];
+        countList[0] = 1;
 
         for (int i = 1; i < numList.length; i++) {
-            if (temp == numList[i]) {
+            if (numList[i - 1] == numList[i]) {
                 count++;
+            } else {
+                count = 1;
             }
+            countList[i] = count;
         }
 
+        int maxCount = max(countList);
 
+        if (maxCount == 1) {
+            System.out.println("每個數字剛好只出現一次");
+        } else {
+            int maxNumber = 0;
+            for (int i = 0; i < numList.length; i++) {
+                if (countList[i] == maxCount) {
+                    maxNumber = numList[i];
+                    break;
+                }
+            }
+            System.out.printf("最大出現次數的數字為: %d\n", maxNumber);
+            System.out.printf("出現次數為: %d\n", maxCount);
+        }
     }
 }
 

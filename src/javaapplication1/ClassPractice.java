@@ -21,6 +21,8 @@ public class ClassPractice {
             System.out.println(tmp[i]);
         }
 
+        int[][] kk1 = new int[3][];
+
 
     }
 }

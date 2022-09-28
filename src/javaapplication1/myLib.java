@@ -38,4 +38,24 @@ public class myLib {
         }
         return numList;
     }
+
+    public static int max(int[] num) {
+        int maxNum = num[0];
+        for (int i = 0; i < num.length; i++) {
+            if (maxNum < num[i]) {
+                maxNum = num[i];
+            }
+        }
+        return maxNum;
+    }
+
+    public static int min(int[] num) {
+        int minNum = num[0];
+        for (int i = 0; i < num.length; i++) {
+            if (minNum > num[i]) {
+                minNum = num[i];
+            }
+        }
+        return minNum;
+    }
 }
