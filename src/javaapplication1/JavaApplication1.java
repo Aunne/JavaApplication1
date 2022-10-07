@@ -1,5 +1,6 @@
 package javaapplication1;
 
+import java.awt.*;
 import java.util.Scanner;
 
 import static javaapplication1.myLib.*;
@@ -10,7 +11,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic8();
+        topic10();
 
     }
 
@@ -284,6 +285,66 @@ public class JavaApplication1 {
             }
             System.out.printf("最大出現次數的數字為: %d\n", maxNumber);
             System.out.printf("出現次數為: %d\n", maxCount);
+        }
+    }
+
+    public static void topic9() {
+        //
+        // 字根與子字根
+        //
+
+        String s1 = input("輸入s1為: ");
+        String s2 = input("輸入s2為: ");
+        String established = "NO";
+
+        if (s1.length() < s2.length()) {
+            for (int i = 0; i <= (s2.length() - s1.length()); i++) {
+                if (s2.startsWith(s1, i)) {
+                    established = "YES";
+                    break;
+                }
+            }
+        }
+
+        System.out.println(established);
+    }
+
+    public static void topic10() {
+        //
+        // 轉置矩陣
+        //
+
+        String sizeA = input("輸入N 及 M為: ");
+        int N = Integer.parseInt(sizeA.split(" ")[0]);
+        int M = Integer.parseInt(sizeA.split(" ")[1]);
+
+        if (N == 0 || M == 0) {
+            return;
+        }
+
+        int[][] originArr = new int[N][M];
+        int[][] newArr = new int[M][N];
+        String[] rowArr = new String[N];
+
+        for (int i = 0; i < N; i++) {
+            rowArr = input("輸入矩陣數值第" + (i + 1) + "列為: ").split(" ");
+            for (int j = 0; j < rowArr.length; j++) {
+                originArr[i][j] = Integer.parseInt(rowArr[j]);
+            }
+        }
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                newArr[j][i] = originArr[i][j];
+            }
+        }
+
+        for (int i = 0; i < M; i++) {
+            System.out.print("輸出矩陣數值第" + (i + 1) + "列為: ");
+            for (int j = 0; j < N; j++) {
+                System.out.print(newArr[i][j] + " ");
+            }
+            System.out.print("\n");
         }
     }
 }
