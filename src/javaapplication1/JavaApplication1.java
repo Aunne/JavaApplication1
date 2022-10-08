@@ -40,7 +40,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic10();
+        topic12();
 
     }
 
@@ -375,6 +375,46 @@ public class JavaApplication1 {
             }
             System.out.print("\n");
         }
+    }
+
+    public static void topic11() {
+        //
+        // 星座查詢
+        // 與電費類似
+        //
+    }
+
+    public static void topic12() {
+        //
+        // 過半元素
+        //
+        String[] originNum = input("輸入一整數序列為: ").split(" ");
+        int count = 1;
+        String reNum = "NO";
+        for (int i = 0; (i < originNum.length - 1); i++) {
+            for (int j = (i + 1); j < originNum.length; j++) {
+                if (originNum[i].equals(originNum[j])) {
+                    count += 1;
+                    if ((count * 2) > originNum.length) {
+                        break;
+                    }
+                }
+            }
+
+            if ((count * 2) > originNum.length) {
+                reNum = originNum[i];
+                break;
+            } else {
+                count = 1;
+            }
+        }
+        System.out.println("過半元素為: " + reNum);
+    }
+
+    public static void topic13() {
+        //
+        // 回文問題
+        //
     }
 }
 
