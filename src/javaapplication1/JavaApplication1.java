@@ -40,7 +40,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic12();
+        topic15();
 
     }
 
@@ -415,6 +415,49 @@ public class JavaApplication1 {
         //
         // 回文問題
         //
+        String[] originChar = input("輸入一字元為: ").split("");
+        int lenIdx = originChar.length - 1;
+        String reChar = "yes";
+
+        for (int i = 0; i < (lenIdx / 2); i++) {
+            if (!originChar[i].equals(originChar[lenIdx - i])) {
+                reChar = "NO";
+                break;
+            }
+        }
+
+        System.out.println(reChar);
+    }
+
+    public static void topic14() {
+        //
+        // 輸入字串算字元
+        //
+        String str = input("輸入一字元為: ");
+        System.out.println("There are " + str.length() + " characters");
+    }
+
+    public static void topic15() {
+        //
+        // 數字加密
+        //
+        String[] strNumArr = input("輸入一組四位數字為: ").split("");
+        int[] numArr = new int[4];
+        for (int i = 0; i < 4; i++) {
+            numArr[i] = (Integer.parseInt(strNumArr[i]) + 7) % 10;
+        }
+        int tmp;
+        tmp = numArr[0];
+        numArr[0] = numArr[2];
+        numArr[2] = tmp;
+
+        tmp = numArr[1];
+        numArr[1] = numArr[3];
+        numArr[3] = tmp;
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print(numArr[i]);
+        }
     }
 }
 
