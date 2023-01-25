@@ -9,4 +9,8 @@ public class student1 extends People {
 
     public String sid;
     public double age;
+    @Override
+    public void get() {
+        System.out.println(this.age);
+    }
 }

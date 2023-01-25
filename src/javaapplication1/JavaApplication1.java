@@ -29,9 +29,6 @@
 
 package javaapplication1;
 
-import java.awt.*;
-import java.util.Scanner;
-
 import static javaapplication1.myLib.*;
 
 public class JavaApplication1 {
@@ -40,7 +37,7 @@ public class JavaApplication1 {
     /*
         執行題目
      */
-        topic15();
+        topic16();
 
     }
 
@@ -458,6 +455,36 @@ public class JavaApplication1 {
         for (int i = 0; i < 4; i++) {
             System.out.print(numArr[i]);
         }
+    }
+
+    public static void topic16() {
+        //
+        // 撲克遊戲
+        //
+
+        int isContinue = 0;
+        String[][] deck = new String[2][];
+        int res;
+        int[] deckType = new int[2];
+
+        /*
+        while (isContinue >= 0) {
+            res = -1;
+            deck[0] = pokerSort(input("").split(" "));
+            deck[1] = pokerSort(input("").split(" "));
+            isContinue = Integer.parseInt(input(""));
+
+            deckType[0] = deckType(deck[0]);
+            deckType[1] = deckType(deck[1]);
+
+
+            System.out.println(res);
+        }
+         */
+        deck[0] = pokerSort(input("").split(" "));
+        System.out.println(isFullHouse(deck[0]));
+
+
     }
 }
 
